@@ -1,5 +1,6 @@
 class MemosController < ApplicationController
   before_action :set_memo, only: [:edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, only: [:create, :update] # TODO: APIのための一時対応…
 
   def index
     @memos = Memo.date_ordered
