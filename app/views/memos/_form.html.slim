@@ -1,0 +1,17 @@
+= form_for @memo do |f|
+  - if @memo.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@memo.errors.count, "error")} prohibited this memo from being saved:"
+      ul
+        - @memo.errors.full_messages.each do |message|
+          li = message
+
+  .form-group
+    = f.label :kind
+    = f.select :kind, Memo.kind.options, {}, class: 'form-control'
+  .form-group
+    = f.label :content
+    = f.text_field :content, class: 'form-control'
+
+  .form-group
+    = f.submit class: 'btn btn-warning pull-right'

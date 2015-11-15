@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      memo: メモ
+    attributes:
+      memo:
+        kind: 種別
+        content: 内容
+        created_at: 作成日
+  enumerize:
+    memo:
+      kind:
+        keep: よかったこと
+        problem: きになること

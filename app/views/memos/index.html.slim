@@ -1,0 +1,24 @@
+h1 #{Memo.model_name.human}一覧
+
+table.table
+  thead
+    tr
+      th = Memo.human_attribute_name :kind
+      th = Memo.human_attribute_name :content
+      th = Memo.human_attribute_name :created_at
+      th
+      th
+
+  tbody
+    - @memos.each do |memo|
+      tr
+        td = memo.kind.text
+        td = memo.content
+        td = l memo.created_at.to_date
+        td = link_to '編集', edit_memo_path(memo)
+        td = link_to '削除', memo, data: {:confirm => '本当に削除してもよいですか'}, :method => :delete
+
+br
+
+= link_to 'あたらしいメモ', new_memo_path, class: 'btn btn-primary'
+= link_to 'ふりかえる', current_memos_path, class: 'btn btn-default'
