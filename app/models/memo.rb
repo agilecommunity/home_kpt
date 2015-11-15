@@ -7,11 +7,15 @@ class Memo < ActiveRecord::Base
   enumerize :kind, in: [:keep, :problem]
 
   scope :current, -> {
-    where('? < created_at', 2.weeks.ago)
+    where('? < created_at', duration.ago)
   }
 
   scope :keeps, -> { where(kind: :keep) }
   scope :problems, -> { where(kind: :problem) }
 
   scope :date_ordered, -> { order(created_at: :desc) }
+
+  def self.duration
+    2.weeks
+  end
 end
