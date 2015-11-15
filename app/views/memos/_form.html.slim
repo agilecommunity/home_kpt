@@ -8,7 +8,7 @@
 
   .form-group
     = f.label :kind
-    = f.text_field :kind, class: 'form-control'
+    = f.select :kind, Memo.kind.options, {}, class: 'form-control'
   .form-group
     = f.label :content
     = f.text_field :content, class: 'form-control'

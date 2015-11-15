@@ -3,16 +3,16 @@ h1 Listing memos
 table.table
   thead
     tr
-      th K/P
-      th 内容
-      th 登録日時
+      th = Memo.human_attribute_name :kind
+      th = Memo.human_attribute_name :content
+      th = Memo.human_attribute_name :created_at
       th
       th
 
   tbody
     - @memos.each do |memo|
       tr
-        td = memo.kind
+        td = memo.kind.text
         td = memo.content
         td = l memo.created_at.to_date
         td = link_to '編集', edit_memo_path(memo)
