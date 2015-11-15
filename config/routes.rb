@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  resources :memos
+  root to: 'memos#current'
+
+  resources :memos do
+    get :current, on: :collection
+  end
 end

@@ -2,7 +2,12 @@ class MemosController < ApplicationController
   before_action :set_memo, only: [:edit, :update, :destroy]
 
   def index
-    @memos = Memo.all
+    @memos = Memo.date_ordered
+  end
+
+  def current
+    @keeps = Memo.current.keeps.date_ordered
+    @problems = Memo.current.problems.date_ordered
   end
 
   def new
