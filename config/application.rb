@@ -17,6 +17,23 @@ Bundler.require(*Rails.groups)
 
 module HomeKpt
   class Application < Rails::Application
+    config.generators do |g|
+      g.assets false
+      g.helper false
+      g.jbuilder false
+      g.controller_specs false
+      g.helper_specs false
+      g.request_specs false
+      g.routing_specs false
+      g.view_specs false
+    end
+
+    config.sass.preferred_syntax = :sass
+    config.i18n.default_locale = :ja
+    config.active_record.default_timezone = :local
+    config.time_zone = 'Asia/Tokyo'
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
