@@ -15,18 +15,26 @@ class MemosController < ApplicationController
   def create
     @memo = Memo.new(memo_params)
 
-    if @memo.save
-      redirect_to memos_url, notice: 'Memo was successfully created.'
-    else
-      render :new
+    respond_to do |format|
+      if @memo.save
+        format.html { redirect_to memos_url, notice: 'Memo was successfully created.' }
+        format.json { head :no_content }
+      else
+        format.html { render :new }
+        format.json { render json: @memo.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def update
-    if @memo.update(memo_params)
-      redirect_to memos_url, notice: 'Memo was successfully updated.'
-    else
-      render :edit
+    respond_to do |format|
+      if @memo.update(memo_params)
+        format.html { redirect_to memos_url, notice: 'Memo was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render :edit }
+        format.json { render json: @memo.errors, status: :unprocessable_entity }
+      end
     end
   end
 
