@@ -1,6 +1,6 @@
 h1 Listing memos
 
-table
+table.table
   thead
     tr
       th K/P
@@ -15,9 +15,9 @@ table
         td = memo.kind
         td = memo.content
         td = l memo.created_at.to_date
-        td = link_to 'Edit', edit_memo_path(memo)
-        td = link_to 'Destroy', memo, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to '編集', edit_memo_path(memo)
+        td = link_to '削除', memo, data: {:confirm => '本当に削除してもよいですか'}, :method => :delete
 
 br
 
-= link_to 'New Memo', new_memo_path
+= link_to 'あたらしいメモ', new_memo_path, class: 'btn btn-primary'

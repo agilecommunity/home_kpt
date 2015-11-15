@@ -1,8 +1,6 @@
-h1 Editing memo
+h1 #{Memo.model_name.human}の編集
 
 == render 'form'
 
-= link_to 'Show', @memo
-'|
-= link_to 'Back', memos_path
+= link_to '戻る', memos_path, class: 'btn btn-default'
 

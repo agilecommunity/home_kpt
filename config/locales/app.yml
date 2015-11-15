@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      memo: メモ
+    attributes:
+      memo:
+        kind: 種別
+        content: 内容

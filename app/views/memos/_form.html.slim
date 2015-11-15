@@ -6,11 +6,12 @@
         - @memo.errors.full_messages.each do |message|
           li = message
 
-  div
+  .form-group
     = f.label :kind
-    = f.text_field :kind
-  div
+    = f.text_field :kind, class: 'form-control'
+  .form-group
     = f.label :content
-    = f.text_field :content
+    = f.text_field :content, class: 'form-control'
 
-  .actions = f.submit
+  .form-group
+    = f.submit class: 'btn btn-warning pull-right'
